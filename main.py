@@ -30,7 +30,7 @@ def request(r):
 
 @app.route('/', methods=['GET'])
 def get_api():
-    return jsonify(request(reques))
+    return jsonify([{}, {}])
 
 
 if __name__ == '__main__':
