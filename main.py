@@ -25,7 +25,7 @@ def request(r):
         alteracao = re.findall('pcp(.*?)\">(.*?)</td>', tr)[0][1]
         api.append({'title': title, 'value': valor_atual, 'porc': alteracao})
 
-    return api
+    return api.sort()
 
 
 @app.route('/', methods=['GET'])
