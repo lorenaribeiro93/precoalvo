@@ -11,7 +11,8 @@ reques = requests.get(
 
 
 def request(r):
-    api = []
+    api = {}
+    api2 = []
 
     res = r.text
 
@@ -23,9 +24,12 @@ def request(r):
             tr)[0][1]
         valor_atual = re.findall('last(.*?)\">(.*?)</td>', tr)[0][1]
         alteracao = re.findall('pcp(.*?)\">(.*?)</td>', tr)[0][1]
-        api.append({'title': title, 'value': valor_atual, 'porc': alteracao})
+        api[title] = {'title': title, 'value': valor_atual, 'porc': alteracao}
 
-    return api.sort()
+    for item in sorted(api):
+        api2.append(item)
+
+    return api
 
 
 @app.route('/', methods=['GET'])
