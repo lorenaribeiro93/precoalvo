@@ -26,7 +26,7 @@ def request(r):
         alteracao = re.findall('pcp(.*?)\">(.*?)</td>', tr)[0][1]
         api_dict[title] = {'title': title, 'value': valor_atual, 'porc': alteracao}
 
-    for item in sorted(api):
+    for item in sorted(api_dict):
         api.append(item)
 
     return api
