@@ -27,7 +27,8 @@ def request(r):
         api_dict[title] = {'title': title, 'value': valor_atual, 'porc': alteracao}
 
     for item in sorted(api_dict):
-        api.append(item)
+        api.append(api_dict[item])
+    print(api)
 
     return api
 
